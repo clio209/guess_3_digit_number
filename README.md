@@ -9,7 +9,8 @@ $ npm install -g guess_3_digit_number
 ```
 
 ## rule
-- This game is about guessing the answer to the 3-digit number.do not use the same number for all three digits.
+- This game is about guessing the answer to the 3-digit number.do not use the same number for all three digits.(Answer Example '123' ’012’ , Not in Answer Example '121' '233' )
+
 - You may answer up to five times.If you can't guess the answer within 5 times, the game is over.
 - If the answer is different from the answer, a hint will be shown.Hint is indicated by the number of the three symbols(○,△,X).
 - the three symbols(○,△,X) have the following meanings.Please help me find the answer.
