@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// eslint-disable-next-line no-undef
-'use strict'
-const answer = []
 
+'use strict'
+
+const answer = []
 const rl = require('readline').createInterface(process.stdin, process.stdout)
 
 // ランダムで被らない3桁の答えを生成
