@@ -1,6 +1,6 @@
 {
   "name": "guess_3_digit_number",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The game is to guess the 3-digit number within 5 times.",
   "main": "index.js",
   "bin": {
