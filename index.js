@@ -6,7 +6,7 @@ const answer = []
 const rl = require('readline').createInterface(process.stdin, process.stdout)
 
 // ランダムで被らない3桁の答えを生成
-function create_three_numbers () {
+function createThreeNumbers () {
   const answer_1 = Math.floor(Math.random() * 10)
   answer.push(answer_1)
   
@@ -23,7 +23,7 @@ function create_three_numbers () {
 }
 
 // 入力された数値が合っているか判定し、ヒントを返す
-function find_out_correct (replay_1, replay_2, replay_3) {
+function findOutCorrect (replay_1, replay_2, replay_3) {
   const symbol = []
   const replays = [replay_1,replay_2,replay_3]
 
@@ -51,19 +51,17 @@ replays.forEach(function(replay,index){
 
 (async function () {
   console.log(' Guess the 3-digit number within 5 times. \n Do not use the same number for the three digits. ')
-  create_three_numbers()
+  createThreeNumbers()
   const gets = () => new Promise(res => rl.once('line', res))
   let num = 0
   while (num < 5) {
     ++num
     console.log(`Enter a three-digit number that you think is the answer. ${num} time(s)`)
+    rl.prompt()
     let str = await gets()
     str = str.split('')
-    find_out_correct(parseInt(str[0]), parseInt(str[1]), parseInt(str[2]))
+    findOutCorrect(parseInt(str[0]), parseInt(str[1]), parseInt(str[2]))
   }
   console.log('You could not answer the question correctly within five times. \n You are finished. Please try again.')
   process.exit()
 })()
-
-
-  
