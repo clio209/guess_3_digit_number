@@ -9,12 +9,15 @@ const rl = require('readline').createInterface(process.stdin, process.stdout)
 function create_three_numbers () {
   const answer_1 = Math.floor(Math.random() * 10)
   answer.push(answer_1)
-
-  do { var answer_2 = Math.floor(Math.random() * 10) }
+  
+  let answer_2 = 0
+  let answer_3 = 0
+  
+  do { answer_2 = Math.floor(Math.random() * 10) }
   while (answer_2 === answer_1)
   answer.push(answer_2)
 
-  do { var answer_3 = Math.floor(Math.random() * 10) }
+  do { answer_3 = Math.floor(Math.random() * 10) }
   while (answer_3 === answer_1 || answer_3 === answer_2)
   answer.push(answer_3)
 }
@@ -22,24 +25,15 @@ function create_three_numbers () {
 // 入力された数値が合っているか判定し、ヒントを返す
 function find_out_correct (replay_1, replay_2, replay_3) {
   const symbol = []
+  const replays = [replay_1,replay_2,replay_3]
 
-  if (replay_1 === answer[0]) {
-    symbol.push('○')
-  } else if (replay_1 === answer[1] || replay_1 === answer[2]) {
-    symbol.push('△')
-  } else { symbol.push('X') }
-
-  if (replay_2 === answer[1]) {
-    symbol.push('○')
-  } else if (replay_2 === answer[0] || replay_2 === answer[2]) {
-    symbol.push('△')
-  } else { symbol.push('X') }
-
-  if (replay_3 === answer[2]) {
-    symbol.push('○')
-  } else if (replay_3 === answer[0] || replay_3 === answer[1]) {
-    symbol.push('△')
-  } else { symbol.push('X') }
+replays.forEach(function(replay,index){
+  if (replay === answer[index]) {
+        symbol.push('○')
+      } else if (answer.includes(replay)) {
+        symbol.push('△')
+      } else { symbol.push('X') }
+})
 
   const maru_count = symbol.filter(function (x) { return x === '○' }).length
   const sannkaku_count = symbol.filter(function (x) { return x === '△' }).length
@@ -70,3 +64,6 @@ function find_out_correct (replay_1, replay_2, replay_3) {
   console.log('You could not answer the question correctly within five times. \n You are finished. Please try again.')
   process.exit()
 })()
+
+
+  
